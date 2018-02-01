@@ -82,44 +82,47 @@ If you run into an error with unrecognized command line option '-mno-cygwin', se
 http://stackoverflow.com/questions/6034390/compiling-with-cython-and-mingw-produces-gcc-error-unrecognized-command-line-o
 
 Sample configuration for the BTC daemon with a pruned blockchain:
-rpcuser=rpc_login
-rpcpassword=rpc_password
-prune=2048
-daemon=1
-server=1
-listen=1
-rpcworkqueue=32
-rpcthreads=96
-rpcallowip=127.0.0.1
-rpcport=8332
-port=8333
+
+	rpcuser=rpc_login
+	rpcpassword=rpc_password
+	prune=2048
+	daemon=1
+	server=1
+	listen=1
+	rpcworkqueue=32
+	rpcthreads=96
+	rpcallowip=127.0.0.1
+	rpcport=8332
+	port=8333
 
 Sample configuration for the BCH daemon with a pruned blockchain:
-rpcuser=rpc_login
-rpcpassword=rpc_password
-prune=2048
-daemon=1
-server=1
-listen=1
-rpcworkqueue=32
-rpcthreads=96
-rpcallowip=127.0.0.1
-rpcport=8330
-port=8331
+
+	rpcuser=rpc_login
+	rpcpassword=rpc_password
+	prune=2048
+	daemon=1
+	server=1
+	listen=1
+	rpcworkqueue=32
+	rpcthreads=96
+	rpcallowip=127.0.0.1
+	rpcport=8330
+	port=8331
 
 Sample configuration for the LTC daemon with a pruned blockchain:
-rpcuser=rpc_login
-rpcpassword=rpc_password
-prune=2048
-rpcallowip=127.0.0.1
-rpcworkqueue=32
-rpcthreads=96
-daemon=1
-server=1
-listen=1
-onlynet=IPv4
-rpcport=10332
-port=10333
+
+	rpcuser=rpc_login
+	rpcpassword=rpc_password
+	prune=2048
+	rpcallowip=127.0.0.1
+	rpcworkqueue=32
+	rpcthreads=96
+	daemon=1
+	server=1
+	listen=1
+	onlynet=IPv4
+	rpcport=10332
+	port=10333
 
 Running P2Pool:
 -------------------------
