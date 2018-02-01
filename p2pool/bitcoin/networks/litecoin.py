@@ -8,11 +8,11 @@ from p2pool.util import pack
 
 
 P2P_PREFIX = 'fbc0b6db'.decode('hex')
-P2P_PORT = 9333
+P2P_PORT = 10333
 ADDRESS_VERSION = 48
-RPC_PORT = 9332
+RPC_PORT = 10332
 RPC_CHECK = defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
-            'litecoin' in (yield bitcoind.rpc_help()) and # new versions have "litecoinprivkey" but no "litecoinaddress"
+            'litecoinprivkey' in (yield bitcoind.rpc_help()) and # new versions have "litecoinprivkey" but no "litecoinaddress"
             not (yield bitcoind.rpc_getinfo())['testnet']
         ))
 SUBSIDY_FUNC = lambda height: 50*100000000 >> (height + 1)//840000

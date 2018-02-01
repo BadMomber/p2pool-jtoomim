@@ -9,13 +9,11 @@ from p2pool.util import pack
 
 #P2P_PREFIX = 'f9beb4d9'.decode('hex') # disk magic and old net magic
 P2P_PREFIX = 'e3e1f3e8'.decode('hex') # new net magic
-P2P_PORT = 8333
+P2P_PORT = 8331
 ADDRESS_VERSION = 0
-RPC_PORT = 8332
+RPC_PORT = 8330
 RPC_CHECK = defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
-            (yield helper.check_block_header(bitcoind, '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f')) and # genesis block
-            (yield helper.check_block_header(bitcoind, '000000000000000000651ef99cb9fcbe0dadde1d424bd9f15ff20136191a5eec')) and # 478559 -- Bitcoin Cash fork
-            not (yield bitcoind.rpc_getinfo())['testnet']
+            (yield bitcoind.rpc_getblockchaininfo())['chain'] != 'test'
         ))
 SUBSIDY_FUNC = lambda height: 50*100000000 >> (height + 1)//210000
 POW_FUNC = data.hash256
