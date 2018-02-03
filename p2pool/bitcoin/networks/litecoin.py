@@ -13,7 +13,7 @@ ADDRESS_VERSION = 48
 RPC_PORT = 10332
 RPC_CHECK = defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
             'litecoinprivkey' in (yield bitcoind.rpc_help()) and # new versions have "litecoinprivkey" but no "litecoinaddress"
-            not (yield bitcoind.rpc_getinfo())['testnet']
+            (yield bitcoind.rpc_getblockchaininfo())['chain'] != 'test'
         ))
 SUBSIDY_FUNC = lambda height: 50*100000000 >> (height + 1)//840000
 POW_FUNC = lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data))
